@@ -21,7 +21,7 @@ int dft(char filename[], char filename2[], char filename3[], char filename4[], c
   　縦軸はtime(s)、横軸はパイプ半径の距離r(mm) 
 *****************************************************************************************/
 
-	fstream file;                                     //【1】声明一个文件输入输出流对象
+	fstream file;                                     
 	file.open(filename, std::ios::in);
 	string strtmp;
 	int date1num = 0, date2num = 0;
@@ -50,17 +50,16 @@ int dft(char filename[], char filename2[], char filename3[], char filename4[], c
 	int rows, cols;
 	cout << date1num << endl;
 	rows = date1.size();                                   //データの行数
-	cout << "zonghangshu " << rows << endl;
+	cout << "rows_data number" << rows << endl;
 	cout << date2num << endl;
 	cout << "zongshujushu " << date2.size() << endl;
 	cols = date2.size() / date1.size();　　　　　　　　　　　//データの列数
-	cout << "zonglieshu " << cols << endl;
+	cout << "cols_date number " << cols << endl;
 
 
 	/***************************************************************************************
-	模块说明:
-			 将读入的CSV表格(字符串)格式-----转化为-----可以用于计算的double型表格
-       String型　→　double変換
+	パート说明:
+      　　　　　　 String型　→　double変換
 	****************************************************************************************/
 
 
@@ -71,16 +70,15 @@ int dft(char filename[], char filename2[], char filename3[], char filename4[], c
 		date.push_back(g);
 		i++;
 	}
-	cout << "zhuanhuanhoudezongshuju" << date.size() << endl;
+	cout << "double_data number" << date.size() << endl;
 
 
 
 
-	/**************************************************************************************
-模块说明:
-		 对每一列的数据进行傅里叶转换求得实部R和虚部I
-    各列の double型のデータにフーリエ変換をして、実部R、虚部Iと主波数を得る。
-*****************************************************************************************/
+　　　　/**************************************************************************************
+　　　　 パート说明:
+     　　　　　　　　各列の double型のデータにフーリエ変換をして、実部R、虚部Iと主波数を得る。
+ 　　　　*****************************************************************************************/
 	ofstream oFile2, oFile3;　　　　　　　　　　　　　　　　
 	oFile2.open(filename2, ios::out | ios::trunc);　　　　//FFTフーリエ変換　実部Rファイル
 	oFile3.open(filename3, ios::out | ios::trunc);　　　　//FFTフーリエ変換　虚部Iファイル　
@@ -138,25 +136,25 @@ int dft(char filename[], char filename2[], char filename3[], char filename4[], c
 
 
 	/***************************************************************************************
-模块说明:
-		   方程式的係数xR[n]の求める　　主波数実部akをパイプ半径の関数  ak=xR[0]+xR[1]*r+xR[2]*r*r+xR[3]*r*r*r+xR[4]*r*r*r*r
-****************************************************************************************/
+　　　　パート说明:
+		  方程式的係数xR[n]の求める　　主波数実部akをパイプ半径の関数  ak=xR[0]+xR[1]*r+xR[2]*r*r+xR[3]*r*r*r+xR[4]*r*r*r*r
+　　　　　****************************************************************************************/
 
 
 	int t;
 	vector<double> DbR;												//実部
 	vector<double> bbR;												//実部
 
-	ofstream oFile4;												//打开拟合曲线的导数和函数值要输出的文件
+	ofstream oFile4;												
 	oFile4.open(filename4, ios::out | ios::trunc);
 
 	for (t = 0; t < 3; t++)
 	{
-		double xR[y];												//实部曲线拟合方程系数
-		double s[y];												//虚部右侧
-		double m[y][y];												//虚部左侧
-		double rr =  t * 0.2 / 29;							//曲线拟合时的起点的r值
-		for (int i = 0; i < y; i++)									//求解m[][] 行列式左侧 
+		double xR[y];												
+		double s[y];											
+		double m[y][y];												
+		double rr =  t * 0.2 / 29;							
+		for (int i = 0; i < y; i++)									 
 		{
 			for (int j = 0; j < y; j++)
 			{
@@ -230,9 +228,9 @@ int dft(char filename[], char filename2[], char filename3[], char filename4[], c
 	oFile4.close();
 
 	/***************************************************************************************
-模块说明:
+ 　　　パート说明:
 		 方程式的係数xI[n]の求める　　主波数虚部bkをパイプ半径の関数  bk=xI[0]+xI[1]*r+xI[2]*r*r+xI[3]*r*r*r+xI[4]*r*r*r*r
-****************************************************************************************/
+ 　　　　****************************************************************************************/
 
 	vector<double> DbI;												
 	vector<double> bbI;												
