@@ -1,25 +1,26 @@
 
-#include <fstream>
-#include <stdio.h>
-#include <iostream>
-#include<string>
-#include<string.h>
-#include<stdlib.h>
-#include <vector>
-#include <math.h>
-using namespace std;
-#define pi 3.1415926535 
+　　　　#include <fstream>
+　　　　#include <stdio.h>
+　　　　#include <iostream>
+　　　　#include<string>
+　　　　#include<string.h>
+　　　　#include<stdlib.h>
+ 　　　 #include <vector>
+ 　　　#include <math.h>
+　　　　using namespace std;
+　　　　#define pi 3.1415926535 
 
-const int y = 5;																//y-1次方程式
+　　　　const int y = 5;																//y-1次方程式
 
-int dft(char filename[], char filename2[], char filename3[], char filename4[], char filename5[], char filename6[], char filename7[], char filename8[])	
-{
+　　　　int dft(char filename[], char filename2[], char filename3[], char filename4[], char filename5[], char filename6[], char filename7[], char filename8[])	
+　　　　{
 
-	/**************************************************************************************
-        パート说明:
-              ファイルのデータをvector<string> date1に読み込む；コンマを取り除いてvector<string> date2に読み込む
-  　           縦軸はtime(s)、横軸はパイプ半径の距離r(mm) 
-        *****************************************************************************************/
+/**************************************************************************************
+ パート说明:
+  ファイルのデータをvector<string> date1に読み込む；コンマを取り除いてvector<string> date2に読み込む
+  縦軸はtime(s)、横軸はパイプ半径の距離r(mm) 
+*****************************************************************************************/
+
 
 	fstream file;                                     
 	file.open(filename, std::ios::in);
@@ -75,10 +76,11 @@ int dft(char filename[], char filename2[], char filename3[], char filename4[], c
 
 
 
-　　　　/**************************************************************************************
+　　/**************************************************************************************
 　　　　 パート说明:
      　　　　　　　　各列の double型のデータにフーリエ変換をして、実部R、虚部Iと主波数を得る。
- 　　　　*****************************************************************************************/
+ 　*****************************************************************************************/
+  
 	ofstream oFile2, oFile3;　　　　　　　　　　　　　　　　
 	oFile2.open(filename2, ios::out | ios::trunc);　　　　//FFTフーリエ変換　実部Rファイル
 	oFile3.open(filename3, ios::out | ios::trunc);　　　　//FFTフーリエ変換　虚部Iファイル　
@@ -135,10 +137,10 @@ int dft(char filename[], char filename2[], char filename3[], char filename4[], c
 	}
 
 
-	/***************************************************************************************
-　　　　パート说明:
-		  方程式的係数xR[n]の求める　　主波数実部akをパイプ半径の関数  ak=xR[0]+xR[1]*r+xR[2]*r*r+xR[3]*r*r*r+xR[4]*r*r*r*r
-　　　　　****************************************************************************************/
+/***************************************************************************************
+　パート说明:
+方程式的係数xR[n]の求める　　主波数実部akをパイプ半径の関数  ak=xR[0]+xR[1]*r+xR[2]*r*r+xR[3]*r*r*r+xR[4]*r*r*r*r
+****************************************************************************************/
 
 
 	int t;
@@ -227,10 +229,10 @@ int dft(char filename[], char filename2[], char filename3[], char filename4[], c
 	}
 	oFile4.close();
 
-	/***************************************************************************************
- 　　　パート说明:
-		 方程式的係数xI[n]の求める　　主波数虚部bkをパイプ半径の関数  bk=xI[0]+xI[1]*r+xI[2]*r*r+xI[3]*r*r*r+xI[4]*r*r*r*r
- 　　　　****************************************************************************************/
+/***************************************************************************************
+ パート说明:
+ 方程式的係数xI[n]の求める　　主波数虚部bkをパイプ半径の関数  bk=xI[0]+xI[1]*r+xI[2]*r*r+xI[3]*r*r*r+xI[4]*r*r*r*r
+ ****************************************************************************************/
 
 	vector<double> DbI;												
 	vector<double> bbI;												
@@ -316,11 +318,10 @@ int dft(char filename[], char filename2[], char filename3[], char filename4[], c
 	}
 	oFile5.close();
 
-
-	/***************************************************************************************
-	模块说明:
+　/***************************************************************************************
+	パート说明:
 			cost function の求める
-	****************************************************************************************/
+****************************************************************************************/
 
 	ofstream File6;												
 	File6.open(filename6, ios::out | ios::trunc);
@@ -465,10 +466,10 @@ int dft(char filename[], char filename2[], char filename3[], char filename4[], c
 	File6.close();
 
 	return 0;
-}
+　　　　}
 
-int main()
-{
+　　　　int main()
+　　　　{
 	char filename[] = "F://theo data 100_314_0_.csv";     //理論データ、粘性v=100、圧力Pの実部A＝314、虚部＝０(輸入)
 	char filename3[] = "F://im.csv";		      //FFT im(r)　(輸出)
 	char filename2[] = "F://re.csv";		      //FFT Re(r)　　(輸出)
@@ -480,4 +481,4 @@ int main()
 	dft(filename, filename2, filename3, filename4, filename5, filename6, filename7, filename8);
 
 	return 0;
-}
+　　　　}
