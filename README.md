@@ -1,19 +1,19 @@
 
-　　　　#include <fstream>
-　　　　#include <stdio.h>
-　　　　#include <iostream>
-　　　　#include<string>
-　　　　#include<string.h>
-　　　　#include<stdlib.h>
- 　　　 #include <vector>
- 　　　#include <math.h>
-　　　　using namespace std;
-　　　　#define pi 3.1415926535 
+　#include <fstream>
+　#include <stdio.h>
+　#include <iostream>
+　#include<string>
+　#include<string.h>
+　#include<stdlib.h>
+ #include <vector>
+ #include <math.h>
+　using namespace std;
+　#define pi 3.1415926535 
 
-　　　　const int y = 5;																//y-1次方程式
+　const int y = 5;																//y-1次方程式
 
-　　　　int dft(char filename[], char filename2[], char filename3[], char filename4[], char filename5[], char filename6[], char filename7[], char filename8[])	
-　　　　{
+int dft(char filename[], char filename2[], char filename3[], char filename4[], char filename5[], char filename6[], char filename7[], char filename8[])	
+{
 
 /**************************************************************************************
  パート说明:
@@ -466,10 +466,10 @@
 	File6.close();
 
 	return 0;
-　　　　}
+}
 
-　　　　int main()
-　　　　{
+int main()
+{
 	char filename[] = "F://theo data 100_314_0_.csv";     //理論データ、粘性v=100、圧力Pの実部A＝314、虚部＝０(輸入)
 	char filename3[] = "F://im.csv";		      //FFT im(r)　(輸出)
 	char filename2[] = "F://re.csv";		      //FFT Re(r)　　(輸出)
@@ -481,4 +481,4 @@
 	dft(filename, filename2, filename3, filename4, filename5, filename6, filename7, filename8);
 
 	return 0;
-　　　　}
+}
