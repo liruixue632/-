@@ -469,13 +469,13 @@ int dft(char filename[], char filename2[], char filename3[], char filename4[], c
 
 int main()
 {
-	char filename[] = "F://anylsis result//theoretical verification_li_1024//100//theo data 100_314_0_.csv";     //理論データ、粘性v=100、圧力Pの実部A＝314、虚部＝０
-	char filename3[] = "F://anylsis result//theoretical verification_li_1024//100//im.csv";			     //FFT im(r)
-	char filename2[] = "F://anylsis result//theoretical verification_li_1024//100//re.csv";		             //FFT Re(r)
-	char filename4[] = "F://anylsis result//theoretical verification_li_1024//100//nihe ak.csv";		     //主波数Re ak(r)　　
-	char filename5[] = "F://anylsis result//theoretical verification_li_1024//100//nihe bk.csv";	             //主波数im bk(r)
-	char filename6[] = "F://anylsis result//theoretical verification_li_1024//100//cost function.csv";           //cost function result
-	char filename8[] = "F://anylsis result//theoretical verification_li_1024//100//akbk.csv";		    
+	char filename[] = "F://theo data 100_314_0_.csv";     //理論データ、粘性v=100、圧力Pの実部A＝314、虚部＝０(輸入)
+	char filename3[] = "F://im.csv";		      //FFT im(r)　(輸出)
+	char filename2[] = "F://re.csv";		      //FFT Re(r)　　(輸出)
+	char filename4[] = "F://nihe ak.csv";		      //主波数Re ak(r)　　(輸出)　
+	char filename5[] = "F://nihe bk.csv";	              //主波数im bk(r)　　(輸出)
+	char filename6[] = "F://cost function.csv";           //cost function result　　(輸出)
+	char filename8[] = "F://akbk.csv";		    
 	
 	dft(filename, filename2, filename3, filename4, filename5, filename6, filename7, filename8);
 
