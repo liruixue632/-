@@ -12,7 +12,7 @@
 
 　const int y = 5;																//y-1次方程式
 
-int dft(char filename[], char filename2[], char filename3[], char filename4[], char filename5[], char filename6[], char filename7[], char filename8[])	
+int dft(char filename[], char filename2[], char filename3[], char filename4[], char filename5[], char filename6[], char filename8[])	
 {
 
 /**************************************************************************************
@@ -478,7 +478,7 @@ int main()
 	char filename6[] = "F://cost function.csv";           //cost function result　　(輸出)
 	char filename8[] = "F://akbk.csv";		    
 	
-	dft(filename, filename2, filename3, filename4, filename5, filename6, filename7, filename8);
+	dft(filename, filename2, filename3, filename4, filename5, filename6, filename8);
 
 	return 0;
 	
