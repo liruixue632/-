@@ -470,7 +470,7 @@ int dft(char filename[], char filename2[], char filename3[], char filename4[], c
 
 int main()
 {
-	char filename[] = "F://theo data 100_314_0_.csv";     //理論データ、粘性v=100、圧力Pの実部A＝314、虚部＝０(輸入)
+	char filename[] = "F://theo data 100_157_0_.csv";     //理論データ、粘性v=100、圧力Pの実部A＝314、虚部＝０(輸入)
 	char filename3[] = "F://im.csv";		      //FFT im(r)　(輸出)
 	char filename2[] = "F://re.csv";		      //FFT Re(r)　　(輸出)
 	char filename4[] = "F://nihe ak.csv";		      //主波数Re ak(r)　　(輸出)　
